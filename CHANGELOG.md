@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+### Fixed
+- Clicking on the last node of an new Tree would not emit NodeHighlighted message https://github.com/Textualize/textual/pull/3528
+### Added
+### Changed
+
 ## [0.55.1] - 2024-04-2
 
 ### Fixed

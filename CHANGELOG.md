@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+### Changed
+
+- Recompose will now keep widgets with matching IDs (with the same parent)
+- Added `state` to Reactive
+  
 ### Fixed
 
 - Fixed erroneous mouse 'ButtonDown' reporting for mouse movement when any-event mode is enabled in xterm. https://github.com/Textualize/textual/pull/3647

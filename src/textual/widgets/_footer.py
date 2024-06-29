@@ -33,6 +33,8 @@ class FooterKey(Widget):
             color: $secondary;
             background: $panel;
             text-style: bold;
+            margin-right: 0;
+            padding: 0 1;
         }
 
         &:light .footer-key--key {
@@ -55,6 +57,11 @@ class FooterKey(Widget):
                     background: $panel;
                 }
             }
+        }
+
+        &.-compact .footer-key--key {
+            margin-right: 1;
+            padding: 0;
         }
 
     }
@@ -83,19 +90,21 @@ class FooterKey(Widget):
         key_style = self.get_component_rich_style("footer-key--key")
         description_style = self.get_component_rich_style("footer-key--description")
         key_display = self.key_display
+        key_margin = self.get_component_styles("footer-key--key").margin
+        key_padding = self.get_component_styles("footer-key--key").padding
         if self.upper_case_keys:
             key_display = key_display.upper()
         if self.ctrl_to_caret and key_display.lower().startswith("ctrl+"):
             key_display = "^" + key_display.split("+", 1)[1]
         description = self.description
-        if self.compact:
-            label_text = Text.assemble(
-                (key_display, key_style), " ", (description, description_style)
-            )
-        else:
-            label_text = Text.assemble(
-                (f" {key_display} ", key_style), (description, description_style), " "
-            )
+        label_text = Text.assemble(
+            (
+                " " * key_padding.left + key_display + " " * key_padding.right,
+                key_style,
+            ),
+            " " * key_margin.right,
+            (description, description_style),
+        )
         label_text.stylize_before(self.rich_style)
         return label_text
 
@@ -115,14 +124,12 @@ class Footer(ScrollableContainer, can_focus=False, can_focus_children=False):
     Footer {
         layout: grid;
         grid-columns: auto;
+        grid-gutter: 1;
         background: $panel;
         color: $text;
         dock: bottom;
         height: 1;
         scrollbar-size: 0 0;
-        &.-compact {
-            grid-gutter: 1;
-        }
     }
     """
 

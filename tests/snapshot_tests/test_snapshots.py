@@ -1294,3 +1294,13 @@ def test_grid_auto(snap_compare):
     """Test grid with keyline and auto-dimension."""
     # https://github.com/Textualize/textual/issues/4678
     assert snap_compare(SNAPSHOT_APPS_DIR / "grid_auto.py")
+
+
+def test_footer_compact(snap_compare):
+    """Test Footer in the compact style"""
+    assert snap_compare(SNAPSHOT_APPS_DIR / "footer_compact.py")
+
+
+def test_footer_classic_styling(snap_compare):
+    """Regression test for https://github.com/Textualize/textual/issues/4557"""
+    assert snap_compare(SNAPSHOT_APPS_DIR / "footer_classic_styling.py")

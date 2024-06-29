@@ -20,6 +20,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Fixed link inside markdown table not posting a `Markdown.LinkClicked` message https://github.com/Textualize/textual/issues/4683
 - Fixed issue with mouse movements on non-active screen https://github.com/Textualize/textual/pull/4688
 
+### Added
+
+- Added `Footer` component style handling of margins/padding for the key https://github.com/Textualize/textual/pull/4651
 
 ## [0.70.0] - 2024-06-19
 
